@@ -16,7 +16,7 @@ static void print_usage(void) {
         stderr,
         "%s: stress test libmongocrypt\n\n"
         "usage:\n"
-        "%s [OPTIONS] -p PATH_TO_CRYPT_SHARED\n\n"
+        "%s [OPTIONS]\n\n"
         "OPTIONS\n"
         "\t-h\tdisplay this help message\n\n"
         "\t-j\tnumber of parallel jobs\n\n"
@@ -95,12 +95,6 @@ static void parse_opts(
             exit(EXIT_FAILURE);
         }
     }
-
-    if (!opts->path) {
-        log_error("-p must be set\n");
-        print_usage();
-        exit(EXIT_FAILURE);
-    }
 }
 
 static void _log_to_stderr(
@@ -174,7 +168,9 @@ int main(int argc, char **argv) {
             }
         }
 
-        mongocrypt_setopt_set_crypt_shared_lib_path_override(crypt, opts.path);
+        if (opts.path) {
+            mongocrypt_setopt_set_crypt_shared_lib_path_override(crypt, opts.path);
+        }
 
         if (!mongocrypt_init(crypt)) {
             #pragma omp critical
