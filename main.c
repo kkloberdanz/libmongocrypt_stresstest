@@ -170,13 +170,12 @@ int main(int argc, char **argv) {
         mongocrypt_setopt_set_crypt_shared_lib_path_override(crypt, opts.path);
 
         if (!mongocrypt_init(crypt)) {
-            log_error("mongocrypt_init failed");
-            if (errno) {
-                perror("errno");
-            }
-
             #pragma omp critical
             {
+                log_error("mongocrypt_init failed");
+                if (errno) {
+                    perror("errno");
+                }
                 exit(EXIT_FAILURE);
             }
         }
