@@ -1,4 +1,5 @@
 CC=cc
+STD=-std=c99
 WARN=-Werror -Wall -Wextra -Wpedantic -Wfloat-equal -Wundef -Wshadow \
 	-Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes \
 	-Wstrict-overflow=5 -Wwrite-strings -Waggregate-return -Wcast-qual \
@@ -8,7 +9,7 @@ OPT=-O3 -g
 SAN=-fsanitize=address
 OMP=-fopenmp
 
-override CFLAGS += $(OPT) $(WARN) $(OMP) $(SAN)
+override CFLAGS += $(OPT) $(WARN) $(OMP) $(SAN) $(STD)
 override LDFLAGS += -lpthread -lmongocrypt
 
 libmongocrypt_stresstest: main.c
