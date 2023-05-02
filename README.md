@@ -2,10 +2,17 @@
 
 Stress test libmongocrypt to search for bugs.
 
-## Usage
+## Build
+
 ```bash
-$ make CFLAGS='-I/home/kyle-mongo/install/cdriver/include/' LDFLAGS='-L/home/kyle-mongo/install/libmongocrypt/lib/'
-cc -o libmongocrypt_stresstest main.c -I/home/kyle-mongo/install/cdriver/include/ -O3 -g -Werror -Wall -Wextra -Wpedantic -Wfloat-equal -Wundef -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=5 -Wwrite-strings -Waggregate-return -Wcast-qual -Wswitch-enum -Wunreachable-code -Wformat -Wformat-security -Wvla -fopenmp -fsanitize=address -L/home/kyle-mongo/install/libmongocrypt/lib/ -lpthread -lmongocrypt
+make \
+    CFLAGS='-I/path/to/libmongocrypt/include' \
+    LDFLAGS='-L/path/to/libmongocrypt/lib/'
+```
+
+## Usage
+
+```bash
 $ ./libmongocrypt_stresstest -p /home/kyle-mongo/crypt_shared/6.3.0/lib/mongo_crypt_v1.so
 libmongocrypt_stresstest: INFO: Opened CSFLE dynamic library [/home/kyle-mongo/crypt_shared/6.3.0/lib/mongo_crypt_v1.so]
 libmongocrypt_stresstest: INFO: Opened CSFLE dynamic library [/home/kyle-mongo/crypt_shared/6.3.0/lib/mongo_crypt_v1.so]
