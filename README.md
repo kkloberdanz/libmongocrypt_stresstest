@@ -59,7 +59,7 @@ Thread T12 created by T0 here:
 
 ## Usage
 
-```bash
+```
 $ ./libmongocrypt_stresstest -h
 libmongocrypt_stresstest: stress test libmongocrypt
 
