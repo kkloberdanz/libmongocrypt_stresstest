@@ -10,7 +10,7 @@ make \
     LDFLAGS='-L/path/to/libmongocrypt/lib/'
 ```
 
-## Usage
+## Example
 
 ```bash
 $ ./libmongocrypt_stresstest -p /home/kyle-mongo/crypt_shared/6.3.0/lib/mongo_crypt_v1.so
@@ -55,4 +55,24 @@ Thread T12 created by T0 here:
     #3 0x7f4638253f24 in __GI_getenv /build/glibc-SzIz7B/glibc-2.31/stdlib/getenv.c:35
 
 ==1362551==ABORTING
+```
+
+## Usage
+
+```bash
+$ ./libmongocrypt_stresstest -h
+libmongocrypt_stresstest: stress test libmongocrypt
+
+usage:
+libmongocrypt_stresstest [OPTIONS] -p PATH_TO_CRYPT_SHARED
+
+OPTIONS
+	-h	display this help message
+
+	-j	number of parallel jobs
+
+	-n	total number of iterations (default 100)
+
+	-p	path to the crypt shared dynamic library
+
 ```
