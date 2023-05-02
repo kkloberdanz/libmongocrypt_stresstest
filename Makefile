@@ -8,8 +8,9 @@ OPT=-O3 -g
 SAN=-fsanitize=address
 OMP=-fopenmp
 INC=-I/home/kyle-mongo/install/libmongocrypt/include/
-CFLAGS=$(OPT) $(WARN) $(OMP) $(SAN) $(INC)
-LDFLAGS=-lpthread -L/home/kyle-mongo/install/libmongocrypt/lib/ -lmongocrypt
+
+override CFLAGS += $(OPT) $(WARN) $(OMP) $(SAN) $(INC)
+override LDFLAGS += -lpthread -lmongocrypt
 
 libmongocrypt_stresstest: main.c
 	$(CC) -o libmongocrypt_stresstest main.c $(CFLAGS) $(LDFLAGS)
