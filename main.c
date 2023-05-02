@@ -1,17 +1,16 @@
-#include <stdio.h>
-#include <stdarg.h>
-#include <stdlib.h>
-#include <errno.h>
 #include <err.h>
-#include <getopt.h>
 #include <errno.h>
+#include <getopt.h>
 #include <omp.h>
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include <mongocrypt/mongocrypt.h>
 
 #define UNUSED(A) (void)(A)
 
-const char * const PROGRAM_NAME = "libmongocrypt_stresstest";
+const char *const PROGRAM_NAME = "libmongocrypt_stresstest";
 
 static void print_usage(void) {
     fprintf(
@@ -38,7 +37,7 @@ static void log_error(const char *fmt, ...) {
     va_end(args);
 }
 
-static long long parse_ll(const char * const str) {
+static long long parse_ll(const char *const str) {
     errno = 0;
     long long num = 0;
     char *endptr = NULL;
