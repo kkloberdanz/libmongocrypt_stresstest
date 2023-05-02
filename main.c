@@ -43,11 +43,11 @@ static long long parse_ll(const char *const str) {
     char *endptr = NULL;
     num = strtoll(str, &endptr, 10);
     if (errno == ERANGE) {
-        log_error("the input value is out of range for a long long");
+        log_error("argument: '%s' is out of range for a long long", str);
         print_usage();
         exit(EXIT_FAILURE);
     } else if (*endptr != '\0') {
-        log_error("the input string is not a valid integer");
+        log_error("argument: '%s' is not a valid integer", str);
         print_usage();
         exit(EXIT_FAILURE);
     }
