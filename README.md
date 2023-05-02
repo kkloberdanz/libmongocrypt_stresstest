@@ -64,7 +64,7 @@ $ ./libmongocrypt_stresstest -h
 libmongocrypt_stresstest: stress test libmongocrypt
 
 usage:
-libmongocrypt_stresstest [OPTIONS] -p PATH_TO_CRYPT_SHARED
+libmongocrypt_stresstest [OPTIONS]
 
 OPTIONS
 	-h	display this help message
