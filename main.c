@@ -1,4 +1,3 @@
-#include <err.h>
 #include <errno.h>
 #include <getopt.h>
 #include <omp.h>
@@ -76,9 +75,17 @@ static void parse_opts(
             exit(EXIT_SUCCESS);
         case 'n':
             opts->num_iterations = parse_ll(optarg);
+            if (opts->num_iterations < 0) {
+                log_error("number of iterations must be at least 0");
+                exit(EXIT_FAILURE);
+            }
             break;
         case 'j':
             opts->num_threads = parse_ll(optarg);
+            if (opts->num_threads <= 0) {
+                log_error("number of threads must be at least 1");
+                exit(EXIT_FAILURE);
+            }
             break;
         case 'p':
             opts->path = optarg;
