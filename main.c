@@ -119,7 +119,7 @@ static void _log_to_stderr(
             log_error("WARNING: %s", message);
             break;
         case MONGOCRYPT_LOG_LEVEL_INFO:
-            log_error("INFO: %s", message);
+            // log_error("INFO: %s", message);
             break;
         case MONGOCRYPT_LOG_LEVEL_TRACE:
             log_error("TRACE: %s", message);
@@ -185,5 +185,6 @@ int main(int argc, char **argv) {
 
         mongocrypt_destroy(crypt);
     }
+    log_error("SUCCESS");
     return 0;
 }

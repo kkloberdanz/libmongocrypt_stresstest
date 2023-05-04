@@ -5,8 +5,8 @@ WARN=-Werror -Wall -Wextra -Wpedantic -Wfloat-equal -Wundef -Wshadow \
 	-Wstrict-overflow=5 -Wwrite-strings -Waggregate-return -Wcast-qual \
 	-Wswitch-enum -Wunreachable-code -Wformat -Wformat-security -Wvla
 OPT=-O3 -g
-# SAN=-fsanitize=thread
-SAN=-fsanitize=address
+SAN=-fsanitize=thread
+# SAN=-fsanitize=address
 OMP=-fopenmp
 
 override CFLAGS += $(OPT) $(WARN) $(OMP) $(SAN) $(STD)
